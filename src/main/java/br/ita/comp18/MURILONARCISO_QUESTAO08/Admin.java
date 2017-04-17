@@ -22,6 +22,9 @@ public class Admin {
 	public void blockUser(String username, int days, Date start){
 		_blockDB.newBlock(username, start, days);
 	}
+	public int findTitle(String title){
+		return _bookDB.getIdByTitle(title);
+	}
 	public boolean lendBook(int id, String username){
 		if(_blockDB.isBlocked(username))
 			return false;
