@@ -4,4 +4,6 @@ public interface LoanDB {
 
 	void newLoan(int id, String username, BookDB _bookDB);
 
+	void removeLoan(int id, String username, BookDB _bookDB);
+
 }

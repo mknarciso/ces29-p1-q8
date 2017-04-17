@@ -31,4 +31,7 @@ public class Admin {
 		_loanDB.newLoan(id,username,_bookDB);
 		return true;
 	}
+	public void returnBook(int id, String username){
+		_loanDB.removeLoan(id,username,_bookDB);
+	}
 }
