@@ -49,7 +49,7 @@ public class UserServer implements UserDB {
          ResultSet rs  = pstmt.executeQuery();
          // loop through the result set
          while (rs.next()) {
-             System.out.println("Inserido no BD:"+rs.getString("username"));
+             //System.out.println("Logado como:"+rs.getString("username"));
              return true;
          }
       	 return false;
