@@ -34,7 +34,7 @@ public class Server{
     			"CREATE TABLE IF NOT EXISTS loan (\n"
                 + "	id integer PRIMARY KEY AUTOINCREMENT,\n"
                 + "	username text,\n"
-                + "	book text,\n"
+                + "	bookid integer,\n"
                 + "	date text\n"
                 + ");");
     }
@@ -63,5 +63,7 @@ public class Server{
         return conn;
     }
     public static void main(String[] args) {
+    	Server server = new Server();
+    	server.startTables();
     }
 }

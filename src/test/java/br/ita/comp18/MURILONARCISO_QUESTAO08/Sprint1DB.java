@@ -11,7 +11,6 @@ import java.util.Date;
 
 public class Sprint1DB extends Admin
 {
-    //  create mock
 	private static UserServer userDB = new UserServer();
     //private static UserDB userDB = mock(UserDB.class);
 	private static BlockServer blockDB = new BlockServer();
