@@ -16,7 +16,8 @@ public class Sprint2DB extends Admin
     //private static BlockDB blockDB = mock(BlockDB.class);
 	private static BookServer bookDB = new BookServer();
     //private static BookDB bookDB = mock(BookDB.class);
-    private static LoanDB loanDB = mock(LoanDB.class);
+	private static LoanServer loanDB = new LoanServer();
+    //private static LoanDB loanDB = mock(LoanDB.class);
     
 	public Sprint2DB(){
 		super(userDB,blockDB,bookDB,loanDB);
@@ -27,18 +28,21 @@ public class Sprint2DB extends Admin
 		//when(blockDB.isBlocked("joao")).thenReturn(false);
 		blockDB.removeBlocks("joao");
 		int bookId = findTitle("Star Wars");
+		//System.out.print(blockDB.isBlocked("joao"));
 		assertEquals(1,bookId);
-		//assertTrue(lendBook(bookId, "joao"));
+		assertTrue(lendBook(bookId, "joao"));
+		assertTrue(loanDB.isLend(bookId));
 		//verify(loanDB, times(1)).newLoan(357,"joao",bookDB);
 		
 	}
-	/*@Test
+	@Test
 	public void AdminReturnABook() {
-		when(bookDB.getIdByTitle("Star Wars")).thenReturn(357);
-		when(blockDB.isBlocked("joao")).thenReturn(false);
+		blockDB.removeBlocks("joao");
+		//when(bookDB.getIdByTitle("Star Wars")).thenReturn(357);
+		//when(blockDB.isBlocked("joao")).thenReturn(false);
 		int bookId = findTitle("Star Wars");
 		returnBook(bookId,"joao");
-		verify(loanDB, times(1)).removeLoan(357,"joao",bookDB);
+		assertFalse(loanDB.isLend(bookId));
 		
-	}*/
+	}
 }

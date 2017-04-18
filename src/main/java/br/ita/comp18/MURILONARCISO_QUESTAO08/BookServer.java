@@ -69,9 +69,9 @@ public class BookServer implements BookDB {
 		{
 		  pstmt2.setInt(1,bookId);
 		  ResultSet rs2  = pstmt2.executeQuery();
-		  // Retorna emprestado
+		  // Retorna disponível
 		  while (rs2.next()) {
-		      return 2;
+		      return 1;
 		  }
 		} catch (SQLException e) {
 		  System.out.println(e.getMessage());

@@ -6,4 +6,6 @@ public interface LoanDB {
 
 	void removeLoan(int id, String username, BookDB _bookDB);
 
+	boolean isLend(int bookid);
+
 }

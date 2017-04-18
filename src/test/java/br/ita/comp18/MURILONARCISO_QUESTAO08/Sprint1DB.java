@@ -15,8 +15,10 @@ public class Sprint1DB extends Admin
     //private static UserDB userDB = mock(UserDB.class);
 	private static BlockServer blockDB = new BlockServer();
     //private static BlockDB blockDB = mock(BlockDB.class);
-    private static BookDB bookDB = mock(BookDB.class);
-    private static LoanDB loanDB = mock(LoanDB.class);
+	private static BookServer bookDB = new BookServer();
+    //private static BookDB bookDB = mock(BookDB.class);
+	private static LoanServer loanDB = new LoanServer();
+    //private static LoanDB loanDB = mock(LoanDB.class);
     
 	public Sprint1DB(){
 		super(userDB,blockDB,bookDB,loanDB);
