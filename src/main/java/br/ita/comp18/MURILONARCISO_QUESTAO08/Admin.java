@@ -13,6 +13,13 @@ public class Admin {
 		_loanDB=loanDB;
 		_bookDB=bookDB;
 	}
+	public boolean exists(String username){
+		if(_userDB.loginUser(username)){
+			return true;
+		}
+		return false;
+			
+	}
 	public void createUser(String username){
 		_userDB.newUser(username);
 	}

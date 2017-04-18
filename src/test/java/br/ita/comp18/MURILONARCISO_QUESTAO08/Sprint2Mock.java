@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
-public class Sprint2Test extends Admin
+public class Sprint2Mock extends Admin
 {
     //  create mock
     private static UserDB userDB = mock(UserDB.class);
@@ -16,7 +16,7 @@ public class Sprint2Test extends Admin
     private static BookDB bookDB = mock(BookDB.class);
     private static LoanDB loanDB = mock(LoanDB.class);
     
-	public Sprint2Test(){
+	public Sprint2Mock(){
 		super(userDB,blockDB,bookDB,loanDB);
 	}
 	@Test

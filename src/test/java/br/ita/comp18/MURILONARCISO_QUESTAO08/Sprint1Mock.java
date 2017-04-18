@@ -9,7 +9,7 @@ import java.util.Date;
 
 
 
-public class Sprint1Test extends Admin
+public class Sprint1Mock extends Admin
 {
     //  create mock
     private static UserDB userDB = mock(UserDB.class);
@@ -17,7 +17,7 @@ public class Sprint1Test extends Admin
     private static BookDB bookDB = mock(BookDB.class);
     private static LoanDB loanDB = mock(LoanDB.class);
     
-	public Sprint1Test(){
+	public Sprint1Mock(){
 		super(userDB,blockDB,bookDB,loanDB);
 	}
 

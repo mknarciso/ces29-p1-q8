@@ -6,14 +6,14 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 
-public class Sprint3Test extends User
+public class Sprint3Mock extends User
 {
     //  create mock
     private static UserDB userDB = mock(UserDB.class);
     private static BookDB bookDB = mock(BookDB.class);
     private static LoanDB loanDB = mock(LoanDB.class);
     
-	public Sprint3Test(){
+	public Sprint3Mock(){
 		super(userDB,bookDB,loanDB);
 	}
 	@Test
