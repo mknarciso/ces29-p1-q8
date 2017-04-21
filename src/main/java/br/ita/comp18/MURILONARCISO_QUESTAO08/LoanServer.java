@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class LoanServer implements LoanDB {
@@ -62,4 +63,10 @@ public class LoanServer implements LoanDB {
     	//db.removeLoan(1, "antonio", bdb);
     	System.out.println(db.isLend(1));
     }
+
+	@Override
+	public ArrayList<Book> getListByUser(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

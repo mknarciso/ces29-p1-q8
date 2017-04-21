@@ -5,6 +5,9 @@ public class Book {
 	private int _id;
 	private BookDB _bookDB;
 	public Book(String title, String author, BookDB bookDB){
+		_bookDB = bookDB;
+		_title = title;
+		_author = author;
 		_id = _bookDB.newBook(title,author);
 	}
 	public String getAutor() {

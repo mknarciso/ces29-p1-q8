@@ -1,5 +1,7 @@
 package br.ita.comp18.MURILONARCISO_QUESTAO08;
 
+import java.util.ArrayList;
+
 public class User {
 	private UserDB _userDB;
 	private LoanDB _loanDB;
@@ -47,7 +49,23 @@ public class User {
 				return "Emprestado";
 			case 3:
 				return "Extraviado";
+			case 4:
+				return " Vencido  ";
 		}
 		return "Erro!";
+	}
+	
+	public void printMyBooks(){
+		ArrayList<Book> myBooks = _loanDB.getListByUser(_username);
+		System.out.println("Lista de livros de "+_username);
+		System.out.println("[Status]ID/Titulo/Autor");
+		for(int i=0;i<myBooks.size();i++){
+			Book atual = myBooks.get(i);
+			System.out.println("["+sBookStatus(atual.getId())+"]"+
+						atual.getId()+" / "+
+						atual.getTitle()+" / "+
+						atual.getAutor()
+					);
+		}
 	}
 }
