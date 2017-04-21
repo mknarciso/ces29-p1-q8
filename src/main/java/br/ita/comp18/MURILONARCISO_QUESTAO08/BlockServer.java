@@ -61,4 +61,10 @@ public class BlockServer implements BlockDB {
 		return false;
 	}
 
+	@Override
+	public int getBlockType(String username) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

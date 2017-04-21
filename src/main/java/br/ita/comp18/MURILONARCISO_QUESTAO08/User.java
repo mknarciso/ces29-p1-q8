@@ -8,10 +8,18 @@ public class User {
 	private BookDB _bookDB;
 	private String _username;
 	private boolean authenticate;
+	private BlockDB _blockDB;
 	public User(UserDB userDB, BookDB bookDB, LoanDB loanDB) {
 		_userDB=userDB;
 		_loanDB=loanDB;
 		_bookDB=bookDB;
+		authenticate = false;
+	}
+	public User(UserDB userDB, BookDB bookDB, LoanDB loanDB, BlockDB blockDB) {
+		_userDB=userDB;
+		_loanDB=loanDB;
+		_bookDB=bookDB;
+		_blockDB=blockDB;
 		authenticate = false;
 	}
 	public boolean login(String username){
@@ -67,5 +75,23 @@ public class User {
 						atual.getAutor()
 					);
 		}
+	}
+	public int getMyStatus(){
+		if(_blockDB.isBlocked(_username))
+				return _blockDB.getBlockType(_username);
+		return 0;
+	}
+	
+	public String sMyStatus(){
+		int status = getMyStatus();
+		switch (status){
+			case 0:
+				return "Sem Restrições";
+			case 1:
+				return "Bloqueado por atraso";
+			case 2:
+				return "Bloqueado por cobrança";
+		}
+		return "Erro!";
 	}
 }

@@ -6,4 +6,5 @@ public interface BlockDB {
 	void newBlock(String username, Date start, int days);
 	void removeBlocks(String username);
 	boolean isBlocked(String username);
+	int getBlockType(String username);
 }

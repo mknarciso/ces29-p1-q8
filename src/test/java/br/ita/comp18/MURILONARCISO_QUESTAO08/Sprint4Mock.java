@@ -29,9 +29,10 @@ public class Sprint4Mock extends User
     private static UserDB userDB = mock(UserDB.class);
     private static BookDB bookDB = mock(BookDB.class);
     private static LoanDB loanDB = mock(LoanDB.class);
+    private static BlockDB blockDB = mock(BlockDB.class);
     
 	public Sprint4Mock(){
-		super(userDB,bookDB,loanDB);
+		super(userDB,bookDB,loanDB,blockDB);
 	}
 
 	@Test
@@ -62,6 +63,38 @@ public class Sprint4Mock extends User
 				"[Emprestado]101 / Zero to One: Notes on Startups, or How to Build the Future / Peter Thiel\n"+
 				"[ Vencido  ]102 / The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution / Walter Isaacson\n", outContent.toString()
 			);
+		logout();
+	}
+	@Test
+	public void GetMyStatusOk() {
+		when(userDB.loginUser("joao")).thenReturn(true);
+		when(blockDB.isBlocked("joao")).thenReturn(false);
+		// Start simulation
+		login("joao");
+		assertEquals(0, getMyStatus());
+		assertEquals("Sem Restrições", sMyStatus());
+		logout();
+	}
+	@Test
+	public void GetMyStatusAtraso() {
+		when(userDB.loginUser("joao")).thenReturn(true);
+		when(blockDB.isBlocked("joao")).thenReturn(true);
+		when(blockDB.getBlockType("joao")).thenReturn(1);
+		// Start simulation
+		login("joao");
+		assertEquals(1, getMyStatus());
+		assertEquals("Bloqueado por atraso", sMyStatus());
+		logout();
+	}
+	@Test
+	public void GetMyStatusCobranca() {
+		when(userDB.loginUser("joao")).thenReturn(true);
+		when(blockDB.isBlocked("joao")).thenReturn(true);
+		when(blockDB.getBlockType("joao")).thenReturn(2);
+		// Start simulation
+		login("joao");
+		assertEquals(2, getMyStatus());
+		assertEquals("Bloqueado por cobrança", sMyStatus());
 		logout();
 	}
 }
